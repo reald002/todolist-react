@@ -1,6 +1,7 @@
 import React from 'react';
-import TodoItem from './components/TodoItem';
-import InputField from './components/InputField'
+import TodoItem from './components/TodoItem/index';
+import InputField from './components/InputField/index'
+import Filters from './components/Filters/index';
 import './App.css';
 
 class App extends React.Component {

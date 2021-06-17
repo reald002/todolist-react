@@ -1,0 +1,16 @@
+.filters{
+    color: #777;
+    font-size: 14px;
+}
+.items-left{
+    color: inherit;
+    font-size: inherit;
+}
+.filter-btn{
+    color: inherit;
+    font-size: inherit;
+}
+.clear-completed-btn{
+    color: inherit;
+    font-size: inherit;
+}

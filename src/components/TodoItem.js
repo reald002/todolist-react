@@ -6,7 +6,6 @@ class TodoItem extends Component {
         super(props);
     }
 
-
     render() {
         return (
               <li className="todo-item">

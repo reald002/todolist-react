@@ -1,0 +1,25 @@
+:root{
+    --dark-grey: #4d4d4d;
+    --light-grey: rgba(153, 153, 153, 0.42);
+}
+
+.input-field{
+    padding: 16px 16px 16px 60px;
+    border: none;
+    background: #fff;
+    color: var(--dark-grey);
+    box-shadow: 0 0 4px 4px rgba(141, 141, 141, 0.09);
+    outline: none;
+    width: 100%;
+
+    font-size: 24px;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: 1.4em;
+}
+.input-field::placeholder{
+    color: var(--light-grey);
+}
+.toggle-all{
+
+}

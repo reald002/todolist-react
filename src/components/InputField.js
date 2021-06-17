@@ -17,11 +17,9 @@ class InputField extends Component {
     }
 
     handleKeyDown = (e) => {
-        e.preventDefault();
         if(e.key === 'Enter') {
-            this.props.handleEnterClick({
-                text: this.state.text,
-            });
+            e.stopPropagation();
+            this.props.onEnterClick(this.state.text);
             this.setState({
                 text: '',
             });
@@ -30,7 +28,7 @@ class InputField extends Component {
 
     render() {
         return (
-            <input className='input-field' type="text" onKeyDown={this.handleKeyDown} onChange={this.handleInputChange} placeholder='What needs to be done?' value={this.state.text} />
+            <input className='input-field' type="text" onChange={this.handleInputChange} onKeyDown={this.handleKeyDown} placeholder='What needs to be done?' value={this.state.text} />
         );
     }
 }

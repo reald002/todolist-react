@@ -1,4 +1,5 @@
 import {Component} from "react";
+import './TodoItem.css';
 
 class TodoItem extends Component {
     constructor(props) {
@@ -14,7 +15,7 @@ class TodoItem extends Component {
 
                   <span className="text">{this.props.text}</span>
 
-                  <button className="removeTodoBtn" />
+                  <button className="remove-btn" >&#215;</button>
               </li>
         );
     }

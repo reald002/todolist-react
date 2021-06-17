@@ -14,11 +14,17 @@ class App extends React.Component {
     };
   };
 
+  handleRemoveTodo = (id) => {
+      this.setState(state => ({
+          data: state.data.filter(e => e.id !== id)
+      }));
+  }
+
   render() {
     return (
         <div className="App">
             <div className="container">
-                {this.state.data.map(e => <TodoItem text={e.text} id={e.id} />) }
+                {this.state.data.map(e => <TodoItem onRemoveTodo={this.handleRemoveTodo} text={e.text} id={e.id} />) }
             </div>
         </div>
     );

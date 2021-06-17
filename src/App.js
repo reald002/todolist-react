@@ -1,5 +1,6 @@
 import React from 'react';
 import InputField from './components/InputField'
+import TodoItem from './components/TodoItem';
 import './App.css';
 
 class App extends React.Component {
@@ -23,6 +24,7 @@ class App extends React.Component {
             <div className="container">
                 <h1>todos</h1>
                 <InputField onEnterClick={this.handleEnterPress} />
+                <TodoItem text={this.state.text} />
             </div>
         </div>
     );

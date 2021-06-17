@@ -11,18 +11,22 @@ class InputField extends Component {
     }
 
     handleKeyDown = (e) => {
-        if(e.key === 'Enter') {
-            e.stopPropagation();
-            this.props.onEnterClick(this.state.text);
-            this.setState({
-                text: '',
-            });
-        }
+        this.setState({
+            text: e.target.value
+        }, () => {
+            if(e.key === 'Enter') {
+                this.props.onEnterClick(this.state.text);
+                e.target.value = '';
+                this.setState({
+                    text: '',
+                });
+            }
+        })
     }
 
     render() {
         return (
-            <input className='input-field' type="text" onKeyDown={this.handleKeyDown} placeholder='What needs to be done?' value={this.state.text} />
+            <input className='input-field' type="text" onKeyDown={this.handleKeyDown} placeholder='What needs to be done?' />
         );
     }
 }

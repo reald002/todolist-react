@@ -10,7 +10,7 @@ class App extends React.Component {
     };
   };
 
-  handleEnterClick = (text) => {
+  handleEnterPress = (text) => {
       const id = this.state.data.length;
       this.setState(state => ({
           data: [...state.data, {id, text, checked: false}]
@@ -22,7 +22,7 @@ class App extends React.Component {
         <div className="App">
             <div className="container">
                 <h1>todos</h1>
-                <InputField onEnterClick={this.handleEnterClick} />
+                <InputField onEnterClick={this.handleEnterPress} />
             </div>
         </div>
     );

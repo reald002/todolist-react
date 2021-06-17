@@ -6,6 +6,10 @@ class TodoItem extends Component {
         super(props);
     }
 
+    handleRemoveBtnClick = () => {
+        this.props.onRemoveTodo(this.props.id);
+    }
+
     render() {
         return (
               <li className="todo-item">
@@ -14,7 +18,7 @@ class TodoItem extends Component {
 
                   <span className="text">{this.props.text}</span>
 
-                  <button className="remove-btn" >&#215;</button>
+                  <button className="remove-btn" onClick={this.handleRemoveBtnClick} >&#215;</button>
               </li>
         );
     }

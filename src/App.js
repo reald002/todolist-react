@@ -7,7 +7,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        data: []
+        data: [
+            {text: '1', id: 0},
+            {text: '2', id: 1}
+        ]
     };
   };
 
@@ -24,7 +27,7 @@ class App extends React.Component {
             <div className="container">
                 <h1>todos</h1>
                 <InputField onEnterClick={this.handleEnterPress} />
-                <TodoItem text={this.state.text} />
+                {this.state.data.map(e => <TodoItem text={e.text} id={e.id} />) }
             </div>
         </div>
     );

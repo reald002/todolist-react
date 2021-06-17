@@ -8,8 +8,8 @@ class App extends React.Component {
     super(props);
     this.state = {
         data: [
-            {text: '1', id: 0},
-            {text: '2', id: 1}
+            {text: 'Random text', id: 0},
+            {text: 'One more random text', id: 1}
         ]
     };
   };

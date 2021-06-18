@@ -31,7 +31,7 @@ function Filters(props) {
     }
 
     const getUncheckedTodosLength = () => {
-        return props.data.filter(e => !e.checked).length
+        return props.data.filter(e => !e.checked).length;
     }
 
     return (

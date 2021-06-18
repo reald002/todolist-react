@@ -52,16 +52,11 @@ class App extends Component {
     handleToggleAllClick = () => {
         const todos = this.checkbox.current.children;
         const newData = [...this.state.data];
-        if(newData.filter(e => e.checked === false).length > 0) {
-            for (let el of todos) {
-                el.querySelector('.checkbox').checked = true;
-                newData.forEach(e => e.checked = true);
-            }
-        } else {
-            for (let el of todos) {
-                el.querySelector('.checkbox').checked = false;
-                newData.forEach(e => e.checked = false);
-            }
+        const gotUncheckedTodos = (newData.filter(e => e.checked === false).length > 0);
+
+        for (let el of todos) {
+            el.querySelector('.checkbox').checked = gotUncheckedTodos;
+            newData.forEach(e => e.checked = gotUncheckedTodos);
         }
 
         this.setState({

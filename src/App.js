@@ -1,17 +1,17 @@
-import React from 'react';
+import {Component} from 'react';
 import TodoItem from './components/TodoItem/index';
-import InputField from './components/InputField/index'
-import Filters from './components/Filters/index';
+import InputField from './components/InputField/index';
+import Filters from "./components/Filters/index";
 import './App.css';
 
-class App extends React.Component {
+class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
             data: [],
             filter: 'All'
         };
-    };
+    }
 
     handleEnterPress = (text) => {
         const id = Date.now();
@@ -28,12 +28,12 @@ class App extends React.Component {
 
     handleCheckboxClick = (value, id) => {
         const newObj = Object.assign(this.state.data.find(e => e.id === id));
-        newObj.checked = value;
-        this.setState(state => ({
-            data: [...state.data.map(e => {
-                return e.id === id ? newObj : e
-            }) ]
-        }));
+        if(newObj) {
+            newObj.checked = value;
+            this.setState(state => ({
+                data: [...state.data.map(e => e.id === id ? newObj : e)]
+            }));
+        }
     }
 
     handleRadioChange = (value) => {
@@ -44,7 +44,7 @@ class App extends React.Component {
 
     handleClearBtnClick = () => {
         this.setState(state => ({
-            data: state.data.filter(e => e.checked === false)
+            data: state.data.filter(e => !e.checked)
         }));
     }
 

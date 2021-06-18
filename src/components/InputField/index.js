@@ -1,4 +1,4 @@
-import './InputField.css';
+import './index.css';
 
 function InputField(props) {
     const handleKeyDown = (e) => {

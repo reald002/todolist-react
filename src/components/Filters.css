@@ -4,6 +4,42 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border-top: 1px solid var(--light-grey);
+}
+.filters__item{
+    width: 33%;
+}
+.filter-buttons{
+    text-align: center;
+}
+.filter-buttons input{
+    display: none;
+}
+.filter-buttons .filter-btn{
+    margin: 0 5px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    cursor: pointer;
+    padding: 3px 5px;
+    border-radius: 3px;
+}
+.filters__item .filter-radio:checked + .filter-btn{
+    border-color: rgba(175, 47, 47, 0.2);
+}
+.filter-buttons .filter-btn:hover{
+    border-color: rgba(175, 47, 47, 0.1);
+}
+.clear-completed-btn{
+    text-align: right;
+    cursor: pointer;
+}
+.clear-completed-btn:hover{
+    text-decoration: underline;
+}
+.clear-completed-btn:active{
+    text-decoration: none;
 }
 .items-left{
     color: inherit;

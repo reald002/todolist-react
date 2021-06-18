@@ -1,27 +1,25 @@
-import {Component} from "react";
 import './TodoItem.css';
+import React from "react";
 
-class TodoItem extends Component {
-    constructor(props) {
-        super(props);
+function TodoItem(props) {
+    const handleRemoveBtnClick = () => {
+        props.onRemoveTodo(props.id);
     }
 
-    handleRemoveBtnClick = () => {
-        this.props.onRemoveTodo(this.props.id);
+    const handleCheckboxClick = (e) => {
+        props.onCheckboxClick(e.target.checked, props.id);
     }
 
-    render() {
-        return (
-              <li className="todo-item">
-                  <input className="checkbox" type="checkbox" id={this.props.id}/>
-                  <label htmlFor={this.props.id} />
+    return (
+        <li style={{ display: (props.filter === props.checked || props.filter === 'All') ? 'flex' : 'none' }}  className="todo-item">
+            <input className="checkbox" onClick={handleCheckboxClick} type="checkbox" id={props.id}/>
+            <label htmlFor={props.id} />
 
-                  <span className="text">{this.props.text}</span>
+            <span className="text">{props.text}</span>
 
-                  <button className="remove-btn" onClick={this.handleRemoveBtnClick} >&#215;</button>
-              </li>
-        );
-    }
+            <button className="remove-btn" onClick={handleRemoveBtnClick} >&#215;</button>
+        </li>
+    );
 }
 
 export default TodoItem;

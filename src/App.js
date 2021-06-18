@@ -7,15 +7,12 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [
-                {text: 'Random text', id: 0},
-                {text: 'One more random text', id: 1}
-            ]
+            data: []
         };
     };
 
     handleEnterPress = (text) => {
-        const id = this.state.data.length;
+        const id = Date.now()
         this.setState(state => ({
             data: [...state.data, {id, text, checked: false}]
         }));
@@ -33,7 +30,7 @@ class App extends React.Component {
                 <div className="container">
                     <h1>todos</h1>
                     <InputField onEnterClick={this.handleEnterPress} />
-                    {this.state.data.map(e => <TodoItem onRemoveTodo={this.handleRemoveTodo} text={e.text} id={e.id} />) }
+                    {this.state.data.map(e => <TodoItem onRemoveTodo={this.handleRemoveTodo} key={e.id} text={e.text} id={e.id} />) }
                 </div>
             </div>
         );

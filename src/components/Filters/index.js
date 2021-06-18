@@ -30,14 +30,14 @@ function Filters(props) {
         props.onClearBtnClick();
     }
 
-    const getCheckedItemsLength = () => {
+    const getUncheckedTodosLength = () => {
         return props.data.filter(e => !e.checked).length
     }
 
     return (
         <div className="filters">
             <div className='items-left filters__item'>
-                { getCheckedItemsLength() > 0 ? `${getCheckedItemsLength()} item${getCheckedItemsLength() > 1 ? 's' : ''} left` : ''}
+                { getUncheckedTodosLength() > 0 ? `${getUncheckedTodosLength()} item${getUncheckedTodosLength() > 1 ? 's' : ''} left` : ''}
             </div>
             <div onChange={handleRadioChange} className="filter-buttons filters__item">
                 {filters.map((e, id) => <FilterBtn key={id} text={e.text} checked={e.checked} id={id}/>)}

@@ -1,6 +1,6 @@
 import React from 'react';
-import InputField from './components/InputField'
 import TodoItem from './components/TodoItem';
+import InputField from './components/InputField'
 import './App.css';
 
 class App extends React.Component {
@@ -32,8 +32,8 @@ class App extends React.Component {
             <div className="App">
                 <div className="container">
                     <h1>todos</h1>
-                    <InputField onEnterClick={this.handleEnterPress}/>
-                    {this.state.data.map(e => <TodoItem onRemoveTodo={this.handleRemoveTodo} text={e.text} id={e.id}/>)}
+                    <InputField onEnterClick={this.handleEnterPress} />
+                    {this.state.data.map(e => <TodoItem onRemoveTodo={this.handleRemoveTodo} text={e.text} id={e.id} />) }
                 </div>
             </div>
         );

@@ -12,7 +12,7 @@ class App extends React.Component {
     };
 
     handleEnterPress = (text) => {
-        const id = Date.now()
+        const id = Date.now();
         this.setState(state => ({
             data: [...state.data, {id, text, checked: false}]
         }));

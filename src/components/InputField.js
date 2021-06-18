@@ -4,24 +4,13 @@ import './InputField.css';
 class InputField extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            text: ''
-        }
     }
 
     handleKeyDown = (e) => {
-        this.setState({
-            text: e.target.value
-        }, () => {
-            if(e.key === 'Enter') {
-                this.props.onEnterClick(this.state.text);
-                e.target.value = '';
-                this.setState({
-                    text: '',
-                });
-            }
-        })
+        if(e.key === 'Enter') {
+            this.props.onEnterClick(e.target.value);
+            e.target.value = '';
+        }
     }
 
     render() {

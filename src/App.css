@@ -1,6 +1,12 @@
+:root{
+    --dark-grey: #4d4d4d;
+    --light-grey: rgba(153, 153, 153, 0.42);
+}
 .container{
     width: 550px;
     margin: 0 auto;
+
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 25px 50px 0 rgb(0 0 0 / 10%);
 }
 h1{
     font-size: 100px;

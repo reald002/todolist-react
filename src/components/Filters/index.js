@@ -9,7 +9,20 @@ function Filters(props) {
     ];
 
     const handleRadioChange = (e) => {
-        const value = e.target.value === 'Active' ? false : e.target.value === 'Completed' ? true : e.target.value;
+        let value;
+        switch(e.target.value) {
+            case 'Active': {
+                value = false;
+                break;
+            }
+            case 'Completed': {
+                value = true;
+                break;
+            }
+            default: {
+                value = e.target.value;
+            }
+        }
         props.onRadioChange(value);
     }
 
@@ -17,10 +30,14 @@ function Filters(props) {
         props.onClearBtnClick();
     }
 
+    const getCheckedItemsLength = () => {
+        return props.data.filter(e => !e.checked).length
+    }
+
     return (
         <div className="filters">
             <div className='items-left filters__item'>
-                {props.data.filter(e => !e.checked).length > 0 ? `${props.data?.filter(e => !e.checked).length} item${props.data?.filter(e => !e.checked).length > 1 ? 's' : ''} left` : ''}
+                { getCheckedItemsLength() > 0 ? `${getCheckedItemsLength()} item${getCheckedItemsLength() > 1 ? 's' : ''} left` : ''}
             </div>
             <div onChange={handleRadioChange} className="filter-buttons filters__item">
                 {filters.map((e, id) => <FilterBtn key={id} text={e.text} checked={e.checked} id={id}/>)}

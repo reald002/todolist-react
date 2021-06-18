@@ -11,8 +11,16 @@ function InputField(props) {
         }
     }
 
+    const handleToggleAllClick = () => {
+        props.onToggleAllClick();
+    }
+
     return (
-        <input className='input-field' type="text" onKeyDown={handleKeyDown} placeholder='What needs to be done?' />
+        <div className="input-block">
+            <button onClick={handleToggleAllClick} style={{ display: props.visible ? 'block' : 'none' }} className="toggle-all">❯</button>
+            <input className="input-field" type="text" onKeyDown={handleKeyDown} placeholder="What needs to be done?" />
+        </div>
+
     );
 }
 

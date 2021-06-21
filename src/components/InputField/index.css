@@ -2,7 +2,9 @@
     --dark-grey: #4d4d4d;
     --light-grey: rgba(153, 153, 153, 0.42);
 }
-
+.input-block{
+    position: relative;
+}
 .input-field{
     padding: 16px 16px 16px 60px;
     border: none;
@@ -11,7 +13,6 @@
     box-shadow: 0 0 4px 4px rgba(141, 141, 141, 0.09);
     outline: none;
     width: 100%;
-
     font-size: 24px;
     font-family: inherit;
     font-weight: inherit;
@@ -21,5 +22,13 @@
     color: var(--light-grey);
 }
 .toggle-all{
-
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    color: var(--light-grey);
+    background: none;
+    font-size: 24px;
+    border: none;
+    outline: none;
 }

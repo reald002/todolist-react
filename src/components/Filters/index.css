@@ -1,0 +1,63 @@
+.filters{
+    color: #777;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border-top: 1px solid var(--light-grey);
+
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .2),
+                0 8px 0 -3px #f6f6f6,
+                0 9px 1px -3px rgba(0, 0, 0, .2),
+                0 16px 0 -6px #f6f6f6,
+                0 17px 2px -6px rgba(0, 0, 0, .2);
+}
+.filters__item{
+    width: 33%;
+}
+.filter-buttons{
+    text-align: center;
+}
+.filter-buttons input{
+    display: none;
+}
+.filter-buttons .filter-btn{
+    margin: 0 5px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    cursor: pointer;
+    padding: 3px 5px;
+    border-radius: 3px;
+}
+.filters__item .filter-radio:checked + .filter-btn{
+    border-color: rgba(175, 47, 47, 0.2);
+}
+.filter-buttons .filter-btn:hover{
+    border-color: rgba(175, 47, 47, 0.1);
+}
+.clear-completed-btn{
+    text-align: right;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+.clear-completed-btn:hover{
+    text-decoration: underline;
+}
+.clear-completed-btn:active{
+    text-decoration: none;
+}
+.items-left{
+    color: inherit;
+    font-size: inherit;
+}
+.filter-btn{
+    color: inherit;
+    font-size: inherit;
+}
+.clear-completed-btn{
+    color: inherit;
+    font-size: inherit;
+}

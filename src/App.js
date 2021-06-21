@@ -1,4 +1,4 @@
-import {Component, createRef} from 'react';
+import {Component} from 'react';
 import TodoItem from './components/TodoItem/index';
 import InputField from './components/InputField/index';
 import Filters from "./components/Filters/index";
@@ -11,7 +11,6 @@ class App extends Component {
             data: [],
             filter: 'All'
         };
-        this.checkbox = createRef();
     }
 
     handleEnterPress = (text) => {
@@ -27,12 +26,12 @@ class App extends Component {
         }));
     }
 
-    handleCheckboxClick = (value, id) => {
-        const newObj = Object.assign(this.state.data.find(e => e.id === id));
+    handleCheckboxClick = (id) => {
+        const newObj = {...this.state.data.find(todo => todo.id === id)};
         if(newObj) {
-            newObj.checked = value;
+            newObj.checked = !newObj.checked;
             this.setState(state => ({
-                data: [...state.data.map(e => e.id === id ? newObj : e)]
+                data: [...state.data.map(todo => todo.id === id ? newObj : todo)]
             }));
         }
     }
@@ -70,8 +69,8 @@ class App extends Component {
                 <h1>todos</h1>
                 <div className="container">
                     <InputField onToggleAllClick={this.handleToggleAllClick} visible={this.state.data.length > 0} onEnterClick={this.handleEnterPress} />
-                    <div ref={this.checkbox} >
-                        {this.state.data.map(e => <TodoItem onCheckboxClick={this.handleCheckboxClick} onRemoveTodo={this.handleRemoveTodo} filter={this.state.filter} checked={e.checked} key={e.id} text={e.text} id={e.id} />)}
+                    <div>
+                        {this.state.data.map(todo => <TodoItem onCheckboxClick={this.handleCheckboxClick} onRemoveTodo={this.handleRemoveTodo} filter={this.state.filter} checked={todo.checked} key={todo.id} text={todo.text} id={todo.id} />)}
                     </div>
                     {!!this.state.data.length && <Filters onClearBtnClick={this.handleClearBtnClick} onRadioChange={this.handleRadioChange} data={this.state.data} />}
                 </div>

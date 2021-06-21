@@ -40,6 +40,8 @@
 .clear-completed-btn{
     text-align: right;
     cursor: pointer;
+    background: none;
+    border: none;
 }
 .clear-completed-btn:hover{
     text-decoration: underline;

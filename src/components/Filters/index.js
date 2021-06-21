@@ -1,4 +1,4 @@
-import FilterBtn from "./filter-btn";
+import FilterBtn from "./Filter-btn";
 import './index.css';
 
 function Filters(props) {
@@ -9,21 +9,7 @@ function Filters(props) {
     ];
 
     const handleRadioChange = (e) => {
-        let value;
-        switch(e.target.value) {
-            case 'Active': {
-                value = false;
-                break;
-            }
-            case 'Completed': {
-                value = true;
-                break;
-            }
-            default: {
-                value = e.target.value;
-            }
-        }
-        props.onRadioChange(value);
+        props.onRadioChange(e.target.value);
     }
 
     const handleClearBtnClick = () => {
@@ -36,13 +22,13 @@ function Filters(props) {
 
     return (
         <div className="filters">
-            <div className='items-left filters__item'>
+            <p className='items-left filters__item'>
                 { getUncheckedTodosLength() > 0 ? `${getUncheckedTodosLength()} item${getUncheckedTodosLength() > 1 ? 's' : ''} left` : ''}
-            </div>
+            </p>
             <div onChange={handleRadioChange} className="filter-buttons filters__item">
-                {filters.map((e, id) => <FilterBtn key={id} text={e.text} checked={e.checked} id={id}/>)}
+                {filters.map((e, index) => <FilterBtn key={index} text={e.text} checked={e.checked} index={index}/>)}
             </div>
-            <div onClick={handleClearBtnClick} className="clear-completed-btn filters__item">{props.data?.filter(e => e.checked === true).length > 0 ? 'Clear completed' : ''}</div>
+            <button onClick={handleClearBtnClick} className="clear-completed-btn filters__item">{props.data?.filter(e => e.checked === true).length > 0 ? 'Clear completed' : ''}</button>
         </div>
     );
 }

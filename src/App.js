@@ -8,22 +8,26 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [],
-            filter: 'All'
+            data: JSON.parse(localStorage.getItem('data')) ?? [],
+            filter: localStorage.getItem('filter') ?? 'All'
         };
+    }
+
+    changeLocalStorage = data => {
+        localStorage.setItem('data', JSON.stringify(data))
     }
 
     handleEnterPress = (text) => {
         const id = Date.now();
         this.setState(state => ({
             data: [...state.data, {id, text, checked: false}]
-        }));
+        }), () => {this.changeLocalStorage(this.state.data)});
     }
 
     handleRemoveTodo = (id) => {
         this.setState(state => ({
             data: state.data.filter(e => e.id !== id)
-        }));
+        }), () => {this.changeLocalStorage(this.state.data)});
     }
 
     handleCheckboxClick = (id) => {
@@ -32,35 +36,34 @@ class App extends Component {
             newObj.checked = !newObj.checked;
             this.setState(state => ({
                 data: [...state.data.map(todo => todo.id === id ? newObj : todo)]
-            }));
+            }), () => {this.changeLocalStorage(this.state.data)});
         }
     }
 
     handleRadioChange = (value) => {
-        this.setState({
+        this.setState(state => ({
             filter: value
-        });
+        }), () => localStorage.setItem('filter', this.state.filter ));
     }
 
     handleClearBtnClick = () => {
         this.setState(state => ({
             data: state.data.filter(e => !e.checked)
-        }));
+        }), () => {this.changeLocalStorage(this.state.data)});
     }
 
     handleToggleAllClick = () => {
-        const todos = this.checkbox.current.children;
+        console.log(this.checkbox)
         const newData = [...this.state.data];
         const gotUncheckedTodos = (newData.filter(e => e.checked === false).length > 0);
 
-        for (let el of todos) {
-            el.querySelector('.checkbox').checked = gotUncheckedTodos;
-            newData.forEach(e => e.checked = gotUncheckedTodos);
-        }
+        newData.forEach(todo => {
+            todo.checked = gotUncheckedTodos
+        })
 
-        this.setState({
+        this.setState(state => ({
             data: newData
-        });
+        }),() => {this.changeLocalStorage(this.state.data)});
     }
 
     render() {

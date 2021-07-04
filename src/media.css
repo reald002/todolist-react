@@ -1,0 +1,36 @@
+@media screen and (max-width: 768px) {
+    .filters{
+        font-size: 12px;
+    }
+    .filters__item{
+        /*width: unset;*/
+    }
+}
+@media screen and (max-width: 480px) {
+    .container{
+        width: 90%;
+    }
+    .todo-item .text, .input-field{
+        padding: 11px 11px 11px 55px;
+        font-size: 20px;
+    }
+    .filters{
+        flex-wrap: wrap;
+    }
+    .filters .items-left{
+        order: 2;
+    }
+    .filters .clear-completed-btn{
+        order: 2;
+        flex: auto;
+    }
+    .filters .filter-buttons{
+        width: 100%;
+        margin-bottom: 10px;
+        justify-content: space-around;
+        font-size: 20px;
+    }
+    .filters{
+        font-size: 16px;
+    }
+}
